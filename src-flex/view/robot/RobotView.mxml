@@ -19,8 +19,8 @@
 		<![CDATA[
 			import d3s.playground.knowledges.RobotKnowledge;
 			
-			import robots.enums.EnumMove;
-			import robots.grid.MovePane;
+			import view.enums.EnumMove;
+			import view.grid.MovePane;
 
 			private static const FILL_COLOR_ODD:uint=0xFFFF00;
 			private static const FILL_COLOR_EVEN:uint=0x0000FF;

@@ -1,4 +1,4 @@
-package robots.enums
+package view.enums
 {
 	public class EnumClass
 	{

@@ -2,7 +2,7 @@
 <s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
 					   xmlns:s="library://ns.adobe.com/flex/spark"
 					   xmlns:mx="library://ns.adobe.com/flex/mx"
-					   xmlns:grid="robots.grid.*"
+					   xmlns:grid="view.grid.*"
 					   xmlns:local="*"
 					   xmlns:flerry="net.riaspace.flerry.*"
 					   minWidth="1150" minHeight="650" backgroundColor="0x777777"

@@ -21,8 +21,8 @@
 			import mx.events.CollectionEventKind;
 			import mx.events.EffectEvent;
 			
-			import robots.enums.EnumMove;
-			import robots.robot.RobotView;
+			import view.enums.EnumMove;
+			import view.robot.RobotView;
 			
 			import spark.effects.Move;
 			import spark.primitives.Graphic;

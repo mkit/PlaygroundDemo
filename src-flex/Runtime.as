@@ -18,7 +18,7 @@ package
 	
 	import net.riaspace.flerry.NativeObject;
 	
-	import robots.grid.MovePane;
+	import view.grid.MovePane;
 	
 	import spark.components.Application;
 

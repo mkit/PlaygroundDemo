@@ -9,7 +9,7 @@
 		<![CDATA[
 			import d3s.playground.vos.Field;
 			
-			import robots.grid.MovePane;
+			import view.grid.MovePane;
 			
 			public static const ENABLED_COLOR:uint = 0x00FF00;
 			public static const DISABLED_COLOR:uint = 0xAAAAAA;

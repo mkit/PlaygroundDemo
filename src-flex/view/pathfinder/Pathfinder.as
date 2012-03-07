@@ -1,4 +1,4 @@
-package pathfinder
+package view.pathfinder
 {
 	import d3s.playground.vos.Field;
 	
