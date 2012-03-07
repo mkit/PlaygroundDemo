@@ -6,5 +6,5 @@
 	<classpathentry kind="lib" path="src-flex/libs/flex-messaging-common.jar"/>
 	<classpathentry kind="lib" path="src-flex/libs/flex-messaging-core.jar"/>
 	<classpathentry kind="lib" path="src-flex/libs/FlyJava.jar"/>
-	<classpathentry kind="output" path="bin-debug/classes"/>
+	<classpathentry kind="output" path="bin-release-temp/classes"/>
 </classpath>

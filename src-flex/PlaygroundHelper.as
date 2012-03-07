@@ -11,9 +11,9 @@ package
 	
 	import mx.collections.ArrayCollection;
 	
-	import pathfinder.Pathfinder;
+	import view.pathfinder.Pathfinder;
 	
-	import robots.enums.EnumMove;
+	import view.enums.EnumMove;
 
 	public class PlaygroundHelper
 	{

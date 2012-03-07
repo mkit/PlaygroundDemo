@@ -11,6 +11,9 @@ package
 	
 	import events.PGEvent;
 	
+	import flash.events.EventDispatcher;
+	import flash.utils.setTimeout;
+	
 	import mx.collections.ArrayCollection;
 	import mx.controls.Alert;
 	import mx.core.FlexGlobals;
@@ -18,11 +21,11 @@ package
 	
 	import net.riaspace.flerry.NativeObject;
 	
-	import robots.grid.MovePane;
-	
 	import spark.components.Application;
+	
+	import view.grid.MovePane;
 
-	public class Runtime
+	public class Runtime extends EventDispatcher
 	{
 		private const _map:Vector.<Vector.<int>>=Vector.<Vector.<int>>([
 			new <int>[0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0], 
@@ -46,6 +49,7 @@ package
 
 		private var _idGenerator:int=1;
 		private var _currentRK:RobotKnowledge;
+		private var _demoMode:Boolean;
 
 		[Bindable]
 		public var cells:ArrayCollection;
@@ -59,9 +63,11 @@ package
 		[Bindable]
 		public var playing:Boolean = false;
 
-		public function Runtime(nativeObject:NativeObject) {
+		public function Runtime(nativeObject:NativeObject, demoMode:Boolean = false) {
 			_seqMethodCaller = new SequentialNativeMethodCaller(nativeObject);
 			_viewUpdater = new ViewUpdater(_robotKnowledges, _crossingsKnowledges, _seqMethodCaller);
+			_demoMode = demoMode;
+			
 		}
 		
 		public function shutdown():void {
@@ -151,7 +157,7 @@ package
 				{
 					checkpointSelection=true;
 					_currentRK=createRobot(pge.field);
-					
+					dispatchEvent(new PGEvent(PGEvent.ROBOTS_ADDED));
 				}
 			}
 		}
@@ -204,6 +210,11 @@ package
 		public function initiate():void {			
 			createPlayground();
 			createCrossings();
+			var thisRuntime:Runtime = this;
+			setTimeout(function ():void {
+				if (_demoMode)
+					DemoScenario.buildDemo(thisRuntime);
+			}, 1000);
 		}
 		
 		private function createPlayground():void

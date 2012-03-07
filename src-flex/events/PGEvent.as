@@ -8,6 +8,7 @@ package events
 	{
 		public static const DOUBLE_CLICKED:String = "PGEventDoubleClicked";
 		public static const CLICKED:String = "PGEventClicked";
+		public static const ROBOTS_ADDED:String = "PGEventRobotsAdded";
 		
 		public var field:Field;
 		public var ctrl:Boolean = false;

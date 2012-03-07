@@ -2,7 +2,7 @@
 <s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
 					   xmlns:s="library://ns.adobe.com/flex/spark"
 					   xmlns:mx="library://ns.adobe.com/flex/mx"
-					   xmlns:grid="robots.grid.*"
+					   xmlns:grid="view.grid.*"
 					   xmlns:local="*"
 					   xmlns:flerry="net.riaspace.flerry.*"
 					   minWidth="1150" minHeight="650" backgroundColor="0x777777"
@@ -10,7 +10,7 @@
 					   frameRate="100" showStatusBar="false"
 					   close="onClose()">
 	<fx:Declarations>
-		<flerry:NativeObject id="javaApplication" debug="true" singleton="true"
+		<flerry:NativeObject id="javaApplication" singleton="true"
 							 source="d3s.playground.main.Application"/>
 	</fx:Declarations>
 	<fx:Script>
@@ -36,8 +36,13 @@
 			{
 				grMovePane.addEventListener(PGEvent.DOUBLE_CLICKED, onMovePaneDoubleClick);
 				grMovePane.addEventListener(PGEvent.CLICKED, onMovePaneClick);
-				_runtime = new Runtime(javaApplication);
+				_runtime = new Runtime(javaApplication, true);
+				_runtime.addEventListener(PGEvent.ROBOTS_ADDED, robotsAdded);
 				_runtime.initiate();
+			}
+			
+			private function robotsAdded(pge:PGEvent):void {
+				grMovePane.addRobots(_runtime.robotKnowledges);
 			}
 			
 			private function onClose():void {
@@ -63,7 +68,6 @@
 			private function onMovePaneDoubleClick(pge:PGEvent):void
 			{
 				_runtime.doubleClicked(pge);
-				grMovePane.addRobots(_runtime.robotKnowledges);
 			}
 			
 			private function onMovePaneClick(pge:PGEvent):void
