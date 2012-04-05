@@ -22,7 +22,6 @@ package
 	import net.riaspace.flerry.NativeObject;
 	
 	import spark.components.Application;
-	
 	import view.grid.MovePane;
 
 	public class Runtime extends EventDispatcher
